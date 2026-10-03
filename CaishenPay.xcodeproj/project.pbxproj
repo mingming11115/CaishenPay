@@ -1,0 +1,646 @@
+// !$*UTF8*$!
+{
+	"archiveVersion" = 1;
+	"classes" = {
+
+	};
+	"objectVersion" = 56;
+	"objects" = {
+		"03A277302102E79291211523" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "09948159A78418875BD42FA7";
+		};
+		"0812957B1B438B02ADA291F4" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+				"09DDC1CBA858C1A47FBB5C32",
+				"5E43EA4571B9F4AC2325426B",
+				"BF5C223F8C3F9FE494FB4838",
+				"8328C32BC3AA1459F10BF0B5",
+				"B9DA4AAF9BF4D80525527C83",
+				"1A8953421FE1EBF3D75C5B75",
+				"091CEA1DDA414B0D86917EC9",
+				"45F721C10D23B56FD4A9D37E",
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"091CEA1DDA414B0D86917EC9" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "0E32055913E8F4100636D9A2";
+		};
+		"09948159A78418875BD42FA7" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "file";
+			"name" = "NotoSerifSC-Variable.ttf";
+			"path" = "Resources/NotoSerifSC-Variable.ttf";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"09DDC1CBA858C1A47FBB5C32" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "4893C4FE49CB3758BDF73975";
+		};
+		"0E32055913E8F4100636D9A2" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"name" = "PayStore.swift";
+			"path" = "Apps/Shared/PayStore.swift";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"0F3DD61ACBB82D591B95D7FE" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"name" = "Theme.swift";
+			"path" = "Apps/Shared/Theme.swift";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"122CC6A11D25877FC068AEB4" = {
+			"isa" = "PBXCopyFilesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"dstPath" = "$(CONTENTS_FOLDER_PATH)/Watch";
+			"dstSubfolderSpec" = 16;
+			"files" = (
+				"E834D14939337E56BD342CA2",
+			);
+			"name" = "Embed Watch Content";
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"1825D3F15E879F91DF58FF36" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.xml";
+			"name" = "iOS-Info.plist";
+			"path" = "Config/iOS-Info.plist";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"184B519F8E1416CCE38CFFD7" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"CLANG_WARN_DOCUMENTATION_COMMENTS" = "YES";
+				"CLANG_WARN_UNREACHABLE_CODE" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"SWIFT_VERSION" = "5.0";
+				"SWIFT_STRICT_CONCURRENCY" = "targeted";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+				"WATCHOS_DEPLOYMENT_TARGET" = "10.0";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG";
+				"ENABLE_TESTABILITY" = "YES";
+			};
+			"name" = "Debug";
+		};
+		"1922B098E983995960BE56B0" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"184B519F8E1416CCE38CFFD7",
+				"A824290273A346217D9BE6F4",
+			);
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"1A8953421FE1EBF3D75C5B75" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "90753B515BC7854493176983";
+		};
+		"1B3039B2E15DD2AB7EA6156D" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"BE567A998199AD21E35F587F",
+				"1825D3F15E879F91DF58FF36",
+			);
+			"name" = "Config";
+			"sourceTree" = "<group>";
+		};
+		"1B681682D83D49CC2C4D1DD0" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+				"79D01F6842A5A5BB32D28E4E",
+				"AD2E90C403B27CAEA187E878",
+				"F56B956BC392AFB3A61EF3D5",
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"1DCF11313F7768A99F81AB9E" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "folder";
+			"name" = "WorkPayCore";
+			"path" = "Packages/WorkPayCore";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"244210E48437B6556980A702" = {
+			"isa" = "PBXProject";
+			"attributes" = {
+				"BuildIndependentTargetsInParallel" = "YES";
+				"LastUpgradeCheck" = "2700";
+				"TargetAttributes" = {
+					"967C0A9B5B8182FE973052FD" = {
+						"CreatedOnToolsVersion" = "27.0";
+					};
+					"9858CC6605DA1F1650044ABE" = {
+						"CreatedOnToolsVersion" = "27.0";
+					};
+				};
+			};
+			"buildConfigurationList" = "1922B098E983995960BE56B0";
+			"compatibilityVersion" = "Xcode 14.0";
+			"developmentRegion" = "zh-Hans";
+			"hasScannedForEncodings" = 0;
+			"knownRegions" = (
+				"zh-Hans",
+				"en",
+				"Base",
+			);
+			"mainGroup" = "AA0596BBDB4DCC95D5D4F10C";
+			"packageReferences" = (
+				"7872A91385BF7E2850AD5C15",
+			);
+			"productRefGroup" = "AE7805B56D1DCAFAA071416F";
+			"projectDirPath" = "";
+			"projectRoot" = "";
+			"targets" = (
+				"967C0A9B5B8182FE973052FD",
+				"9858CC6605DA1F1650044ABE",
+			);
+		};
+		"3390F99A56E87B2D05B49C38" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "1.0.0";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"INFOPLIST_FILE" = "Config/Watch-Info.plist";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.caishen.jixin.watchkitapp";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"SDKROOT" = "watchos";
+				"SUPPORTED_PLATFORMS" = "watchos watchsimulator";
+				"TARGETED_DEVICE_FAMILY" = "4";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"ENABLE_PREVIEWS" = "YES";
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				"SKIP_INSTALL" = "YES";
+			};
+			"name" = "Debug";
+		};
+		"369366657F0CC118760331FE" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"09948159A78418875BD42FA7",
+				"E064B35645674DE7DCD7CAAB",
+				"3B607D5DB884D2A23B72032F",
+			);
+			"name" = "Resources";
+			"sourceTree" = "<group>";
+		};
+		"3705000D7922AE0989B6DB4E" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"ED1D339C2F7345DB0DD72BD9",
+				"E178D7E20AB9253876A9D8A4",
+				"B8A7C4C7C43B9A2F11EEEA63",
+			);
+			"name" = "Apps";
+			"sourceTree" = "<group>";
+		};
+		"3B607D5DB884D2A23B72032F" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "image.jpeg";
+			"name" = "jiangnan-reference.jpg";
+			"path" = "Resources/jiangnan-reference.jpg";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"3D2237A1CFD21A1C2FD5B34A" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.application";
+			"includeInIndex" = 0;
+			"path" = "CaishenWatch.app";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"3EFC79A9F9272EDFC8B12D07" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"3390F99A56E87B2D05B49C38",
+				"ABCD73D63B183783D5CB7096",
+			);
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"3FCD02EE1592F9076145E6DC" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "C1624CAEDC8831D23F24470C";
+		};
+		"45F721C10D23B56FD4A9D37E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "0F3DD61ACBB82D591B95D7FE";
+		};
+		"4769D11DD44DE39E1905CECA" = {
+			"isa" = "XCSwiftPackageProductDependency";
+			"package" = "7872A91385BF7E2850AD5C15";
+			"productName" = "WorkPayCore";
+		};
+		"4893C4FE49CB3758BDF73975" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"name" = "CaishenPayApp.swift";
+			"path" = "Apps/iOS/CaishenPayApp.swift";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"4C7788424D88F6E81A831A22" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"F242D85AEF587D22E447DF40",
+				"D4FBF2CDDF8B7FBA9AB8F3F2",
+			);
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"570DFC3DE33F3F29C1CA6348" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"name" = "LedgerView.swift";
+			"path" = "Apps/iOS/LedgerView.swift";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"5AF4D46CEC3B5550AC312017" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "244210E48437B6556980A702";
+			"proxyType" = 1;
+			"remoteGlobalIDString" = "9858CC6605DA1F1650044ABE";
+			"remoteInfo" = "CaishenWatch";
+		};
+		"5CDA25828B76419547583319" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "9858CC6605DA1F1650044ABE";
+			"targetProxy" = "5AF4D46CEC3B5550AC312017";
+		};
+		"5E43EA4571B9F4AC2325426B" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "570DFC3DE33F3F29C1CA6348";
+		};
+		"5EFBD2EB458559E6CE5B5E5E" = {
+			"isa" = "PBXBuildFile";
+			"productRef" = "892FDB0048EC4A6E04BBE6E5";
+		};
+		"627AB1FB966E6BC9A135AD9D" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3B607D5DB884D2A23B72032F";
+		};
+		"69999739AE6C7D5951DD64CE" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+				"5EFBD2EB458559E6CE5B5E5E",
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"6B2134EA72FCE5F0B5294403" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+				"3FCD02EE1592F9076145E6DC",
+				"CD87F686BFB957F6F5FBFA68",
+				"BEAA9B51D5CD3831B193965E",
+				"6BD4CABBA61E015D42CB41D0",
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"6BD4CABBA61E015D42CB41D0" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "0F3DD61ACBB82D591B95D7FE";
+		};
+		"7872A91385BF7E2850AD5C15" = {
+			"isa" = "XCLocalSwiftPackageReference";
+			"relativePath" = "Packages/WorkPayCore";
+		};
+		"79D01F6842A5A5BB32D28E4E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "09948159A78418875BD42FA7";
+		};
+		"8328C32BC3AA1459F10BF0B5" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "8F785EAE4A0638A51287C26F";
+		};
+		"892FDB0048EC4A6E04BBE6E5" = {
+			"isa" = "XCSwiftPackageProductDependency";
+			"package" = "7872A91385BF7E2850AD5C15";
+			"productName" = "WorkPayCore";
+		};
+		"8F785EAE4A0638A51287C26F" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"name" = "SettingsView.swift";
+			"path" = "Apps/iOS/SettingsView.swift";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"90753B515BC7854493176983" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"name" = "ConnectivityService.swift";
+			"path" = "Apps/Shared/ConnectivityService.swift";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"967C0A9B5B8182FE973052FD" = {
+			"isa" = "PBXNativeTarget";
+			"buildConfigurationList" = "4C7788424D88F6E81A831A22";
+			"buildPhases" = (
+				"0812957B1B438B02ADA291F4",
+				"69999739AE6C7D5951DD64CE",
+				"1B681682D83D49CC2C4D1DD0",
+				"122CC6A11D25877FC068AEB4",
+			);
+			"buildRules" = ();
+			"dependencies" = (
+				"5CDA25828B76419547583319",
+			);
+			"name" = "CaishenPay";
+			"packageProductDependencies" = (
+				"892FDB0048EC4A6E04BBE6E5",
+			);
+			"productName" = "CaishenPay";
+			"productReference" = "E74BB41FC6B2319614939BD3";
+			"productType" = "com.apple.product-type.application";
+		};
+		"9858CC6605DA1F1650044ABE" = {
+			"isa" = "PBXNativeTarget";
+			"buildConfigurationList" = "3EFC79A9F9272EDFC8B12D07";
+			"buildPhases" = (
+				"6B2134EA72FCE5F0B5294403",
+				"AA65DB33F6C906D6E26A2FCF",
+				"E762646603A4BBDCADA3386E",
+			);
+			"buildRules" = ();
+			"dependencies" = ();
+			"name" = "CaishenWatch";
+			"packageProductDependencies" = (
+				"4769D11DD44DE39E1905CECA",
+			);
+			"productName" = "CaishenWatch";
+			"productReference" = "3D2237A1CFD21A1C2FD5B34A";
+			"productType" = "com.apple.product-type.application";
+		};
+		"A12BACA7A76AEAA9189CD5F1" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"name" = "TodayView.swift";
+			"path" = "Apps/iOS/TodayView.swift";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"A824290273A346217D9BE6F4" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"CLANG_WARN_DOCUMENTATION_COMMENTS" = "YES";
+				"CLANG_WARN_UNREACHABLE_CODE" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"SWIFT_VERSION" = "5.0";
+				"SWIFT_STRICT_CONCURRENCY" = "targeted";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+				"WATCHOS_DEPLOYMENT_TARGET" = "10.0";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"ONLY_ACTIVE_ARCH" = "NO";
+				"SWIFT_COMPILATION_MODE" = "wholemodule";
+				"VALIDATE_PRODUCT" = "YES";
+			};
+			"name" = "Release";
+		};
+		"AA0596BBDB4DCC95D5D4F10C" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"3705000D7922AE0989B6DB4E",
+				"369366657F0CC118760331FE",
+				"1B3039B2E15DD2AB7EA6156D",
+				"AC9B7A1A98EEBC3BDCD443E2",
+				"AE7805B56D1DCAFAA071416F",
+			);
+			"sourceTree" = "<group>";
+		};
+		"AA65DB33F6C906D6E26A2FCF" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+				"F02F9D7FF7A9DDCCF2FB8D89",
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"ABCD73D63B183783D5CB7096" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "1.0.0";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"INFOPLIST_FILE" = "Config/Watch-Info.plist";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.caishen.jixin.watchkitapp";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"SDKROOT" = "watchos";
+				"SUPPORTED_PLATFORMS" = "watchos watchsimulator";
+				"TARGETED_DEVICE_FAMILY" = "4";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"ENABLE_PREVIEWS" = "YES";
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				"SKIP_INSTALL" = "YES";
+			};
+			"name" = "Release";
+		};
+		"AC9B7A1A98EEBC3BDCD443E2" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"1DCF11313F7768A99F81AB9E",
+			);
+			"name" = "Packages";
+			"sourceTree" = "<group>";
+		};
+		"AD2E90C403B27CAEA187E878" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "E064B35645674DE7DCD7CAAB";
+		};
+		"AE7805B56D1DCAFAA071416F" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"E74BB41FC6B2319614939BD3",
+				"3D2237A1CFD21A1C2FD5B34A",
+			);
+			"name" = "Products";
+			"sourceTree" = "<group>";
+		};
+		"B8A7C4C7C43B9A2F11EEEA63" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"90753B515BC7854493176983",
+				"0E32055913E8F4100636D9A2",
+				"0F3DD61ACBB82D591B95D7FE",
+			);
+			"name" = "Shared";
+			"sourceTree" = "<group>";
+		};
+		"B9DA4AAF9BF4D80525527C83" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "A12BACA7A76AEAA9189CD5F1";
+		};
+		"BB03778C50A544BAB1317E08" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "E064B35645674DE7DCD7CAAB";
+		};
+		"BE567A998199AD21E35F587F" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.xml";
+			"name" = "Watch-Info.plist";
+			"path" = "Config/Watch-Info.plist";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"BEAA9B51D5CD3831B193965E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "0E32055913E8F4100636D9A2";
+		};
+		"BF5C223F8C3F9FE494FB4838" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "D410E18D82EBF581E0C92BB4";
+		};
+		"C1624CAEDC8831D23F24470C" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"name" = "CaishenWatchApp.swift";
+			"path" = "Apps/Watch/CaishenWatchApp.swift";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"CD87F686BFB957F6F5FBFA68" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "90753B515BC7854493176983";
+		};
+		"D410E18D82EBF581E0C92BB4" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"name" = "RecordsView.swift";
+			"path" = "Apps/iOS/RecordsView.swift";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"D4FBF2CDDF8B7FBA9AB8F3F2" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "1.0.0";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"INFOPLIST_FILE" = "Config/iOS-Info.plist";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.caishen.jixin";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"SDKROOT" = "iphoneos";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"TARGETED_DEVICE_FAMILY" = "1";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"ENABLE_PREVIEWS" = "YES";
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				"SKIP_INSTALL" = "NO";
+				"SUPPORTS_MACCATALYST" = "NO";
+				"SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD" = "NO";
+				"SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD" = "NO";
+			};
+			"name" = "Release";
+		};
+		"E064B35645674DE7DCD7CAAB" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "file";
+			"name" = "OFL-NotoSerifSC.txt";
+			"path" = "Resources/OFL-NotoSerifSC.txt";
+			"sourceTree" = "SOURCE_ROOT";
+		};
+		"E178D7E20AB9253876A9D8A4" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"C1624CAEDC8831D23F24470C",
+			);
+			"name" = "Watch";
+			"sourceTree" = "<group>";
+		};
+		"E74BB41FC6B2319614939BD3" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.application";
+			"includeInIndex" = 0;
+			"path" = "CaishenPay.app";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"E762646603A4BBDCADA3386E" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+				"03A277302102E79291211523",
+				"BB03778C50A544BAB1317E08",
+				"627AB1FB966E6BC9A135AD9D",
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"E834D14939337E56BD342CA2" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3D2237A1CFD21A1C2FD5B34A";
+			"settings" = {
+				"ATTRIBUTES" = (
+					"RemoveHeadersOnCopy",
+				);
+			};
+		};
+		"ED1D339C2F7345DB0DD72BD9" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"4893C4FE49CB3758BDF73975",
+				"570DFC3DE33F3F29C1CA6348",
+				"D410E18D82EBF581E0C92BB4",
+				"8F785EAE4A0638A51287C26F",
+				"A12BACA7A76AEAA9189CD5F1",
+			);
+			"name" = "iOS";
+			"sourceTree" = "<group>";
+		};
+		"F02F9D7FF7A9DDCCF2FB8D89" = {
+			"isa" = "PBXBuildFile";
+			"productRef" = "4769D11DD44DE39E1905CECA";
+		};
+		"F242D85AEF587D22E447DF40" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "1.0.0";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"INFOPLIST_FILE" = "Config/iOS-Info.plist";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.caishen.jixin";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"SDKROOT" = "iphoneos";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"TARGETED_DEVICE_FAMILY" = "1";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"ENABLE_PREVIEWS" = "YES";
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				"SKIP_INSTALL" = "NO";
+				"SUPPORTS_MACCATALYST" = "NO";
+				"SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD" = "NO";
+				"SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD" = "NO";
+			};
+			"name" = "Debug";
+		};
+		"F56B956BC392AFB3A61EF3D5" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3B607D5DB884D2A23B72032F";
+		};
+	};
+	"rootObject" = "244210E48437B6556980A702";
+}

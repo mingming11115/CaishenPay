@@ -15,6 +15,10 @@ open CaishenPay.xcodeproj
 
 `Apps/Shared` 和 `Resources` 自动加入两个目标。iPhone 目标依赖 Watch 目标，并通过 Embed Watch Content 把 Watch 应用打包到 iPhone 应用中。Watch 的 `WKCompanionAppBundleIdentifier` 与 iPhone bundle ID 一致。
 
+## 应用图标
+
+iPhone 和 Watch 共用 `Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png`，Xcode 会为各平台生成需要的尺寸。替换图标时保留文件名，使用 1024 × 1024、不带透明通道的方形 PNG，不预先裁切圆角；主体留在中央，兼顾 Watch 的圆形显示。仅替换图片内容不需要重新生成工程，重新构建并安装应用即可。
+
 ## 命令行验证
 
 下面的命令只为当前进程选择 Xcode，不会修改全局 `xcode-select`。如果 Xcode 不在 `/Applications/Xcode.app`，替换相应路径。

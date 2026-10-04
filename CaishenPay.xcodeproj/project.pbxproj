@@ -119,6 +119,7 @@
 			"isa" = "PBXResourcesBuildPhase";
 			"buildActionMask" = 2147483647;
 			"files" = (
+				"9C445BF3809AB92DE2D35E3C",
 				"79D01F6842A5A5BB32D28E4E",
 				"AD2E90C403B27CAEA187E878",
 				"F56B956BC392AFB3A61EF3D5",
@@ -180,6 +181,7 @@
 				"SDKROOT" = "watchos";
 				"SUPPORTED_PLATFORMS" = "watchos watchsimulator";
 				"TARGETED_DEVICE_FAMILY" = "4";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
 				"SWIFT_EMIT_LOC_STRINGS" = "YES";
 				"ENABLE_PREVIEWS" = "YES";
 				"LD_RUNPATH_SEARCH_PATHS" = (
@@ -193,6 +195,7 @@
 		"369366657F0CC118760331FE" = {
 			"isa" = "PBXGroup";
 			"children" = (
+				"B8FA18644A594FE11B39A425",
 				"09948159A78418875BD42FA7",
 				"E064B35645674DE7DCD7CAAB",
 				"3B607D5DB884D2A23B72032F",
@@ -320,6 +323,10 @@
 			"isa" = "XCLocalSwiftPackageReference";
 			"relativePath" = "Packages/WorkPayCore";
 		};
+		"795DC9B7164C171C97C664A8" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "B8FA18644A594FE11B39A425";
+		};
 		"79D01F6842A5A5BB32D28E4E" = {
 			"isa" = "PBXBuildFile";
 			"fileRef" = "09948159A78418875BD42FA7";
@@ -386,6 +393,10 @@
 			"productReference" = "3D2237A1CFD21A1C2FD5B34A";
 			"productType" = "com.apple.product-type.application";
 		};
+		"9C445BF3809AB92DE2D35E3C" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "B8FA18644A594FE11B39A425";
+		};
 		"A12BACA7A76AEAA9189CD5F1" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -446,6 +457,7 @@
 				"SDKROOT" = "watchos";
 				"SUPPORTED_PLATFORMS" = "watchos watchsimulator";
 				"TARGETED_DEVICE_FAMILY" = "4";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
 				"SWIFT_EMIT_LOC_STRINGS" = "YES";
 				"ENABLE_PREVIEWS" = "YES";
 				"LD_RUNPATH_SEARCH_PATHS" = (
@@ -486,6 +498,13 @@
 			);
 			"name" = "Shared";
 			"sourceTree" = "<group>";
+		};
+		"B8FA18644A594FE11B39A425" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "folder.assetcatalog";
+			"name" = "Assets.xcassets";
+			"path" = "Resources/Assets.xcassets";
+			"sourceTree" = "SOURCE_ROOT";
 		};
 		"B9DA4AAF9BF4D80525527C83" = {
 			"isa" = "PBXBuildFile";
@@ -541,6 +560,7 @@
 				"SDKROOT" = "iphoneos";
 				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
 				"TARGETED_DEVICE_FAMILY" = "1";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
 				"SWIFT_EMIT_LOC_STRINGS" = "YES";
 				"ENABLE_PREVIEWS" = "YES";
 				"LD_RUNPATH_SEARCH_PATHS" = (
@@ -580,6 +600,7 @@
 			"isa" = "PBXResourcesBuildPhase";
 			"buildActionMask" = 2147483647;
 			"files" = (
+				"795DC9B7164C171C97C664A8",
 				"03A277302102E79291211523",
 				"BB03778C50A544BAB1317E08",
 				"627AB1FB966E6BC9A135AD9D",
@@ -624,6 +645,7 @@
 				"SDKROOT" = "iphoneos";
 				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
 				"TARGETED_DEVICE_FAMILY" = "1";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
 				"SWIFT_EMIT_LOC_STRINGS" = "YES";
 				"ENABLE_PREVIEWS" = "YES";
 				"LD_RUNPATH_SEARCH_PATHS" = (

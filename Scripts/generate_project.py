@@ -186,6 +186,7 @@ def main() -> None:
             "GENERATE_INFOPLIST_FILE": "NO", "INFOPLIST_FILE": f"Config/{directory}-Info.plist",
             "PRODUCT_BUNDLE_IDENTIFIER": bundle_id, "PRODUCT_NAME": "$(TARGET_NAME)",
             "SDKROOT": sdk, "SUPPORTED_PLATFORMS": platforms, "TARGETED_DEVICE_FAMILY": family,
+            "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
             "SWIFT_EMIT_LOC_STRINGS": "YES", "ENABLE_PREVIEWS": "YES",
             "LD_RUNPATH_SEARCH_PATHS": ["$(inherited)", "@executable_path/Frameworks"],
             "SKIP_INSTALL": "YES" if is_watch else "NO",

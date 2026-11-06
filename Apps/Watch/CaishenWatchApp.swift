@@ -31,13 +31,14 @@ private struct WatchTodayView: View {
                         .accessibilityHidden(true)
                     if store.data.hasCompletedSetup, store.currentSettings != nil {
                         overview(at: timeline.date)
+                        attendanceControl
                         timerControls
                         recordDetails(at: timeline.date)
                     } else {
                         VStack(spacing: 8) {
                             Text("先在 iPhone 设置")
                                 .font(PayTheme.font(17, weight: .semibold))
-                            Text("确认月薪与班次后\n手表即可查看收入、记录加班")
+                            Text("确认月薪与班次后\n手表即可记录上班、加班")
                                 .font(PayTheme.font(13))
                                 .foregroundStyle(PayTheme.muted)
                                 .multilineTextAlignment(.center)
@@ -107,6 +108,16 @@ private struct WatchTodayView: View {
                     .font(PayTheme.font(11)).foregroundStyle(PayTheme.muted)
             }
         }
+    }
+
+    private var attendanceControl: some View {
+        Button { store.markToday() } label: {
+            Label("今日上班", systemImage: store.attendanceStatusToday == .recorded ? "checkmark.circle.fill" : "calendar.badge.plus")
+        }
+        .buttonStyle(WatchActionStyle(filled: false))
+        .disabled(store.attendanceStatusToday == .recorded)
+        .opacity(store.attendanceStatusToday == .recorded ? 0.5 : 1)
+        .accessibilityIdentifier("watch.today.regular")
     }
 
     @ViewBuilder
@@ -218,15 +229,17 @@ private struct WatchTodayView: View {
 }
 
 private struct WatchActionStyle: ButtonStyle {
+    var filled = true
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(PayTheme.font(15, weight: .medium))
             .frame(maxWidth: .infinity, minHeight: 40)
-            .foregroundStyle(.white)
-            .background(PayTheme.cinnabar)
+            .foregroundStyle(filled ? .white : PayTheme.cinnabar)
+            .background(filled ? PayTheme.cinnabar : .white)
             .clipShape(RoundedRectangle(cornerRadius: 4))
             .overlay(RoundedRectangle(cornerRadius: 4).stroke(PayTheme.cinnabar, lineWidth: 1))
-            .overlay(RoundedRectangle(cornerRadius: 2).inset(by: 3).stroke(Color.white.opacity(0.8), lineWidth: 0.6))
+            .overlay(RoundedRectangle(cornerRadius: 2).inset(by: 3).stroke(filled ? Color.white.opacity(0.8) : PayTheme.cinnabar.opacity(0.3), lineWidth: 0.6))
             .opacity(configuration.isPressed ? 0.7 : 1)
     }
 }

@@ -107,8 +107,8 @@ final class PayStore: ObservableObject {
     func saveAttendance(on date: Date, replacing previous: WorkEntry? = nil) {
         perform {
             #if os(watchOS)
-            throw StoreError.message("请在 iPhone 记录正常出勤")
-            #else
+            guard previous == nil else { throw StoreError.message("请在 iPhone 修正工作记录") }
+            #endif
             let day = try PayEngine.attendanceDate(date, asOf: Date())
             guard data.hasCompletedSetup,
                   let settings = previous?.settings ?? PayEngine.settings(on: day, in: data.settings) else {
@@ -121,7 +121,6 @@ final class PayStore: ObservableObject {
             var next = state
             upsert([entry], in: &next)
             try commit(next)
-            #endif
         }
     }
 

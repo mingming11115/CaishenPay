@@ -37,15 +37,25 @@ struct SettingsView: View {
                     Text("所选年份的节假日及调休安排尚未收录，请更新日历数据。")
                         .foregroundStyle(PayTheme.cinnabar)
                 }
+            } header: { Text("工资基准") }
+              footer: { Text("正常收入 = 月薪 ÷ 当月工作日。按中国大陆节假日及调休自动统计，内置2026年日历。") }
+            .listRowBackground(Color.white)
+
+            Section {
+                Toggle("加班费基数与月薪相同", isOn: $draft.overtimeFollowsSalary)
+                    .accessibilityIdentifier("settings.overtimeFollowsSalary")
+                if !draft.overtimeFollowsSalary {
+                    numberField("加班费月基数（元）", text: $draft.overtimeBase, placeholder: "请输入加班费月基数")
+                }
                 numberField("每日标准小时（加班折算）", text: $draft.hours, placeholder: "8")
-                if let base = SettingsNumbers.decimal(draft.base),
+                if let base = SettingsNumbers.decimal(draft.overtimeFollowsSalary ? draft.base : draft.overtimeBase),
                    let workdays = try? MainlandWorkCalendar.workdays(inMonthOf: draft.effectiveFrom), workdays > 0,
                    let hours = SettingsNumbers.decimal(draft.hours), hours > 0 {
-                    LabeledContent("折算基准时薪", value: SettingsNumbers.money(base / Decimal(workdays) / hours) + " / 小时")
+                    LabeledContent("加班基准时薪", value: SettingsNumbers.money(base / Decimal(workdays) / hours) + " / 小时")
                         .font(PayTheme.font(14)).foregroundStyle(PayTheme.muted)
                 }
-            } header: { Text("工资基准") }
-              footer: { Text("正常收入 = 月薪 ÷ 当月工作日。按中国大陆节假日及调休自动统计，内置2026年日历；加班时薪再除以每日标准小时。") }
+            } header: { Text("加班费基准") }
+              footer: { Text("加班基准时薪 = 加班费月基数 ÷ 当月工作日 ÷ 每日标准小时。关闭跟随月薪后可单独填写，不影响正常出勤收入。") }
             .listRowBackground(Color.white)
 
             Section {
@@ -115,6 +125,8 @@ struct SettingsView: View {
         guard !loaded else { return }; loaded = true
         if let rule = store.currentSettings ?? store.data.settings.max(by: { $0.effectiveFrom < $1.effectiveFrom }) {
             draft.base = SettingsNumbers.plain(rule.monthlyBase)
+            draft.overtimeFollowsSalary = rule.overtimeMonthlyBase == nil
+            draft.overtimeBase = rule.overtimeMonthlyBase.map(SettingsNumbers.plain) ?? ""
             draft.hours = SettingsNumbers.plain(rule.dailyHours)
             draft.weekday = SettingsNumbers.plain(rule.weekdayMultiplier)
             draft.weekend = SettingsNumbers.plain(rule.weekendMultiplier); draft.holiday = SettingsNumbers.plain(rule.holidayMultiplier)
@@ -134,12 +146,21 @@ struct SettingsView: View {
         guard let workdays = try? MainlandWorkCalendar.workdays(inMonthOf: draft.effectiveFrom) else {
             inputError = "该年份的调休日历尚未收录，请更新日历数据后保存。"; return
         }
+        let overtimeBase: Decimal?
+        if draft.overtimeFollowsSalary {
+            overtimeBase = nil
+        } else {
+            guard let amount = SettingsNumbers.decimal(draft.overtimeBase) else {
+                inputError = "请填写有效的加班费月基数。"; return
+            }
+            overtimeBase = amount
+        }
         let rule = PaySettings(effectiveFrom: calendar.startOfDay(for: draft.effectiveFrom), monthlyBase: base,
                                paidDays: Decimal(workdays), dailyHours: hours, weekdayMultiplier: weekday,
                                weekendMultiplier: weekend, holidayMultiplier: holiday,
                                startMinute: draft.startMinute, endMinute: draft.endMinute,
                                breakStartMinute: draft.breakStartMinute, breakEndMinute: draft.breakEndMinute,
-                               timeZoneID: draft.timeZoneID)
+                               timeZoneID: draft.timeZoneID, overtimeMonthlyBase: overtimeBase)
         store.saveSettings(rule)
         if store.errorMessage == nil { message = "新规则已保存。已有记录继续使用原来的工资快照。" }
     }
@@ -147,6 +168,8 @@ struct SettingsView: View {
 
 private struct SettingsDraft {
     var base = ""
+    var overtimeFollowsSalary = true
+    var overtimeBase = ""
     var hours = "8"
     var weekday = "1.5"
     var weekend = "2"

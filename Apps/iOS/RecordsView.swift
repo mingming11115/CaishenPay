@@ -338,7 +338,10 @@ private struct RecordEditor: View {
                             Text("所选年份的调休日历尚未收录")
                         }
                     } else {
-                        LabeledContent("基准时薪", value: RecordFormatting.money(rule.hourlyRate))
+                        if kind != .regular {
+                            LabeledContent("加班费月基数", value: RecordFormatting.money(rule.overtimeMonthlyBase ?? rule.monthlyBase))
+                        }
+                        LabeledContent("基准时薪", value: RecordFormatting.money(kind == .regular ? rule.hourlyRate : rule.overtimeHourlyRate))
                         LabeledContent("本次倍率", value: NSDecimalNumber(decimal: rule.multiplier(for: kind)).stringValue + " 倍")
                     }
                     LabeledContent("班次时区", value: rule.timeZoneID)

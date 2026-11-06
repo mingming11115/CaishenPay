@@ -102,7 +102,8 @@ public enum PayEngine {
             guard (try? entry.settings.validate()) != nil,
                   let interval = clipped(entry, to: dayRange, now: now) else { continue }
             let seconds = entry.kind == .regular ? normalSeconds(in: interval, entry: entry) : interval.duration
-            let earnings = decimalSeconds(seconds) / 3600 * entry.settings.hourlyRate * entry.settings.multiplier(for: entry.kind)
+            let rate = entry.kind == .regular ? entry.settings.hourlyRate : entry.settings.overtimeHourlyRate
+            let earnings = decimalSeconds(seconds) / 3600 * rate * entry.settings.multiplier(for: entry.kind)
             if entry.kind == .regular {
                 regularSeconds += seconds; regularAmount += earnings
             } else {
@@ -212,7 +213,7 @@ public enum PayEngine {
         let conflicts = conflictingIDs(in: unique, asOf: now)
         for entry in unique where entry.deletedAt == nil && entry.kind != .regular && !conflicts.contains(entry.id) {
             guard (try? entry.settings.validate()) != nil, let interval = clipped(entry, to: month, now: now) else { continue }
-            total += decimalSeconds(interval.duration) / 3600 * entry.settings.hourlyRate * entry.settings.multiplier(for: entry.kind)
+            total += decimalSeconds(interval.duration) / 3600 * entry.settings.overtimeHourlyRate * entry.settings.multiplier(for: entry.kind)
         }
         return cents(total)
     }

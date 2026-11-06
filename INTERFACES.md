@@ -11,6 +11,7 @@ struct PaySettings: Codable, Equatable, Identifiable, Sendable {
   var id: UUID
   var effectiveFrom: Date
   var monthlyBase: Decimal
+  var overtimeMonthlyBase: Decimal? // default nil follows monthlyBase; optional for old JSON
   var paidDays: Decimal // default 21.75, >0
   var dailyHours: Decimal // default 8, >0
   var weekdayMultiplier: Decimal // 1.5
@@ -23,6 +24,7 @@ struct PaySettings: Codable, Equatable, Identifiable, Sendable {
   var timeZoneID: String // Asia/Shanghai default
   var modifiedAt: Date
   var hourlyRate: Decimal { get }
+  var overtimeHourlyRate: Decimal { get } // (overtimeMonthlyBase ?? monthlyBase) / paidDays / dailyHours
   func multiplier(for kind: WorkKind) -> Decimal
   func validate() throws
 }
@@ -99,6 +101,10 @@ var conflictIDs: Set<UUID> { get }
 var deviceID: String { get }
 init(demo: Bool = false)
 func summary(on date: Date, now: Date = Date()) -> DaySummary
+var attendanceStatusToday: AttendanceStatus { get }
+var attendanceStatusText: String { get }
+func markToday(at date: Date = Date()) // phone and watch; daily attendance, no timer
+func saveAttendance(on date: Date, replacing previous: WorkEntry? = nil) // watch may create, corrections stay on phone
 func begin(_ kind: WorkKind, at date: Date = Date())
 func stop(at date: Date = Date())
 func saveSettings(_ settings: PaySettings) // errors to errorMessage, finishes existing record before rule change if needed

@@ -21,6 +21,8 @@ public struct PaySettings: Codable, Equatable, Identifiable, Sendable {
     public var id: UUID
     public var effectiveFrom: Date
     public var monthlyBase: Decimal
+    /// Nil follows the monthly salary, including snapshots written before this field existed.
+    public var overtimeMonthlyBase: Decimal?
     public var paidDays: Decimal
     public var dailyHours: Decimal
     public var weekdayMultiplier: Decimal
@@ -38,8 +40,10 @@ public struct PaySettings: Codable, Equatable, Identifiable, Sendable {
                 weekdayMultiplier: Decimal = Decimal(string: "1.5")!, weekendMultiplier: Decimal = 2,
                 holidayMultiplier: Decimal = 3, startMinute: Int = 540, endMinute: Int = 1080,
                 breakStartMinute: Int = 720, breakEndMinute: Int = 780,
-                timeZoneID: String = "Asia/Shanghai", modifiedAt: Date = Date()) {
+                timeZoneID: String = "Asia/Shanghai", modifiedAt: Date = Date(),
+                overtimeMonthlyBase: Decimal? = nil) {
         self.id = id; self.effectiveFrom = effectiveFrom; self.monthlyBase = monthlyBase
+        self.overtimeMonthlyBase = overtimeMonthlyBase
         self.paidDays = paidDays; self.dailyHours = dailyHours
         self.weekdayMultiplier = weekdayMultiplier; self.weekendMultiplier = weekendMultiplier
         self.holidayMultiplier = holidayMultiplier; self.startMinute = startMinute
@@ -48,9 +52,15 @@ public struct PaySettings: Codable, Equatable, Identifiable, Sendable {
     }
 
     public var hourlyRate: Decimal {
-        guard !monthlyBase.isNaN, !paidDays.isNaN, !dailyHours.isNaN,
-              monthlyBase >= 0, paidDays > 0, dailyHours > 0 else { return 0 }
-        let rate = monthlyBase / paidDays / dailyHours
+        hourlyRate(for: monthlyBase)
+    }
+    public var overtimeHourlyRate: Decimal {
+        hourlyRate(for: overtimeMonthlyBase ?? monthlyBase)
+    }
+    private func hourlyRate(for base: Decimal) -> Decimal {
+        guard !base.isNaN, !paidDays.isNaN, !dailyHours.isNaN,
+              base >= 0, paidDays > 0, dailyHours > 0 else { return 0 }
+        let rate = base / paidDays / dailyHours
         return rate.isNaN ? 0 : rate
     }
     public func multiplier(for kind: WorkKind) -> Decimal {
@@ -66,13 +76,19 @@ public struct PaySettings: Codable, Equatable, Identifiable, Sendable {
         guard !monthlyBase.isNaN, monthlyBase >= 0, monthlyBase <= upper else {
             throw PayValidationError.invalidSettings("月薪必须为不小于零且不超过一万亿元的金额。")
         }
+        let overtimeBase = overtimeMonthlyBase ?? monthlyBase
+        guard !overtimeBase.isNaN, overtimeBase >= 0, overtimeBase <= upper else {
+            throw PayValidationError.invalidSettings("加班费基数必须为不小于零且不超过一万亿元的金额。")
+        }
         guard !paidDays.isNaN, paidDays > 0, paidDays <= 366,
               !dailyHours.isNaN, dailyHours > 0, dailyHours <= 24 else {
             throw PayValidationError.invalidSettings("计薪天数须大于 0 且不超过 366；每日计薪小时须大于 0 且不超过 24。")
         }
-        let rawRate = monthlyBase / paidDays / dailyHours
-        guard !rawRate.isNaN, rawRate <= upper else {
-            throw PayValidationError.invalidSettings("折算时薪过大，请检查月薪、计薪天数和每日小时。")
+        for base in [monthlyBase, overtimeBase] {
+            let rawRate = base / paidDays / dailyHours
+            guard !rawRate.isNaN, rawRate <= upper else {
+                throw PayValidationError.invalidSettings("折算时薪过大，请检查月薪、加班费基数、计薪天数和每日小时。")
+            }
         }
         for multiplier in [weekdayMultiplier, weekendMultiplier, holidayMultiplier] {
             guard !multiplier.isNaN, multiplier > 0, multiplier <= 100 else {
